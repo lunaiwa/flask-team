@@ -1,26 +1,38 @@
-<!-- Extending the project layout, as this file will do minor customizations -->
-{% extends "layouts/project.html" %}
+<!-- Extending the predefined project layout -->
+{% extends "layouts/base.html" %}
 
-<!-- Setting up variables to customize "project" details to be specific to kangaroos -->
-{% set project = "Kangaroos" %}
-{% set overview = "https://realethantran.github.io/fastpages_EthanT/" %}
-{% set repo = "https://github.com/realethantran/fastpages_EthanT" %}
-{% set authors = "https://github.com/realethantran"  %}
+<!- This variable sets name of browser tab  -->
+{% set project = "Stubby" %}
 
-<!-- Setting up a block replacement to customize background to RINGS -->
-{% block background %}
-    <script src="{{ url_for('static', filename='js/three.r119.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vanta.rings.min.js') }}"></script>
-    <script>
-        VANTA.RINGS({
-            el: "body",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00
+<!- This is a replacement block for Body in base.html -->
+{% block body %}
+    <!- Try building a new body here, bootstrap is a wise choice ->
+    <div>
+        <div class = "content">
+        <script src="https://cdn.htmlgames.com/embed.js?game=CookieMonster&amp;bgcolor=white"></script>
+        </div>
+    </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+        <script>
+            VANTA.HALO({
+                el: "body",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 950.00,
+                minWidth: 950.00,
+                baseColor: 0x381370,
+                backgroundColor: 0x0,
+                amplitudeFactor: 0.40,
+                xOffset: 0.15,
+                yOffset: -0.11,
+                size: 1.10
         })
-    </script>
+        
+            </script>
+{% endblock %}
+
+<!- This is turning off birds background from base.html -->
+{% block background %}
 {% endblock %}
